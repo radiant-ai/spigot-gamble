@@ -1,0 +1,10 @@
+main: com.github.radiant.gamble.Gamble
+version: 1.0
+name: Gamble
+author: Radiant
+api-version: 1.13
+
+commands:
+  gamble:
+    description: Allows you to gamble.
+    permission: gamble.basic
