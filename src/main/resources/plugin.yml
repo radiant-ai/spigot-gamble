@@ -1,5 +1,5 @@
 main: com.github.radiant.gamble.Gamble
-version: 1.0
+version: 1.0.1
 name: Gamble
 author: Radiant
 api-version: 1.13

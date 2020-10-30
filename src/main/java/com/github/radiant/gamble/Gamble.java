@@ -23,9 +23,10 @@ public class Gamble extends JavaPlugin implements CommandExecutor {
     public void onEnable() {
         this.getCommand("gamble").setExecutor(this);
         this.saveDefaultConfig();
+        this.getConfig().options().copyDefaults(true);
         shulkerGamble = this.getConfig().getBoolean("shulker-gamble");
         cooldownTime = this.getConfig().getInt("cooldown");
-        winChance = this.getConfig().getInt("win-chance");
+        winChance = this.getConfig().getDouble("win-chance");
         Bukkit.getLogger().info("Gamble50 was enabled!");
     }
 
@@ -39,7 +40,7 @@ public class Gamble extends JavaPlugin implements CommandExecutor {
             Player p = (Player) sender;
             if (!cooldown.containsKey(p.getUniqueId()) || System.currentTimeMillis() - cooldown.get(p.getUniqueId()) > cooldownTime*1000) {
                 ItemStack is = p.getInventory().getItemInMainHand();
-                if (is != null && (shulkerGamble || is.getType() != Material.SHULKER_BOX)) {
+                if (is != null && is.getType() != Material.AIR && (shulkerGamble || !is.getType().name().contains("SHULKER_BOX"))) {
                     if (Math.random() < 0.5) {
                         Map<Integer, ItemStack> m = p.getInventory().addItem(is);
                         if (!m.isEmpty()) {

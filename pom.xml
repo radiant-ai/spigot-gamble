@@ -9,7 +9,7 @@
     </properties>
     <groupId>com.github.radiant</groupId>
     <artifactId>Gamble</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
     <repositories>
         <repository>
             <id>papermc</id>
